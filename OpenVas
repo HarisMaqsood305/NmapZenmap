@@ -1,0 +1,142 @@
+# Open a new terminal window
+# Click on the Kali icon on the topology diagram to open the terminal
+# On the login screen, select Other -> Enter username: root, Password: toor
+
+# View available options with Nmap
+nmap
+
+# Challenge #1
+# Initiate a quick ping scan to identify live hosts with a network ID of 10.1.1.*
+nmap -sP 10.1.1.*
+
+# Initiate a ping scan while spoofing the source MAC address
+nmap -v -sP --spoof-mac 0 10.1.1.*
+
+# Scan for supported IP protocols by the host
+nmap -sO 10.1.1.10
+
+# Open a new tab in the terminal
+# Click on File from the top menu pane and then click on Open Tab
+
+# Initiate a TCP scan against the Security Onion system
+nmap -sT 192.168.1.6
+
+# Initiate an operating system scan against the DVL system
+nmap -O 10.1.1.10
+
+# Initiate the same scan against the Ubuntu system
+nmap -O 192.168.1.50
+
+# Make Nmap take approximate guesses as to what the OS may be
+nmap -O --osscan-guess 192.168.1.50
+
+# Challenge #2
+# Scan specifically for port 80 against the DVL system
+nmap -p 80 10.1.1.10
+
+# Scan specifically for port 80 for all hosts on both networks (Internal and DMZ)
+nmap -p 80 192.168.1.0/24 10.1.1.0/28
+
+# Scan the DVL system while displaying all packets being sent and received
+nmap --packet-trace 10.1.1.10
+
+# Show local host data in relation to which interfaces are up and what the route table looks like
+nmap --iflist
+
+# Detect remote services along with their respective version numbers
+nmap -sV 10.1.1.10
+
+# View the output given from scanning the IP protocols
+
+# Scanning The Network Using Zenmap
+# Open Zenmap
+# Bring the loopback interface to an up state
+ifconfig lo up
+
+# Initiate the openvas_start script
+/home/scripts/openvas_start
+
+# Open Iceweasel Web browser
+# Note: This assumes Iceweasel is installed and properly configured
+# Click on the Iceweasel icon on the top menu pane to open it
+
+# Navigate to OpenVAS Web interface
+# Type the following address in the address bar: https://127.0.0.1:9392
+
+# Expand security risks understanding and add exception
+# Click on "I Understand the Risks" -> Click "Add Exception..." -> Click "Confirm Security Exception"
+
+# Log in to OpenVAS management dashboard
+# Username: admin
+# Password: admin (Note: Password won't be displayed for security purposes)
+
+# Navigate to Quick start and start a scan
+# Enter IP address 10.1.1.10 and click Start Scan
+
+# Wait for the scan to complete
+# Note: If the scan gets stuck, click refresh or log in again with admin/admin
+
+# Navigate to SecInfo Management and click on CVEs
+
+# Create a new target
+# Navigate to Configuration -> Targets -> Click New Target
+# Name: Ubuntu
+# Hosts: Manual -> 192.168.1.50
+# Alive Test: ICMP Ping
+# Click Create Target
+
+# Verify the new target is successfully added
+
+# Create a new user
+# Navigate to Administration -> Users -> Click New User
+# Login Name: Analyst1
+# Password: password (Note: Password won't be displayed for security purposes)
+# Roles: User
+# Host Access: Deny all and allow -> 192.168.1.50
+# Click Create User
+
+# Verify the new user is successfully created
+
+# Create a new schedule
+# Navigate to Configuration -> Schedules -> Click New Schedule
+# Name: Ubuntu Discovery
+# First Time: Choose desired time
+# Period: 1 day
+# Click Create Schedule
+
+# Verify the new schedule is successfully created
+
+# Schedule a new task
+# Navigate to Scan Management -> Tasks -> Click New Task
+# Name: Ubuntu Discovery
+# Scan Config: Discovery
+# Scan Targets: Ubuntu
+# Schedule: Ubuntu Discovery
+# Click Create Task
+
+# Verify the new task is successfully created
+
+# Analyze the scan report
+# Wait for the scan to finish
+# Once finished, click on the number under Total Reports column to view the scan report
+# Analyze vulnerabilities found for host 10.1.1.10
+
+# Click STOP when finished
+
+zenmap
+
+# Initiate a quick ping scan on the 192.168.1.0/24 network
+# Choose Ping scan from the Profile drop-down menu and click Scan
+
+# Initiate a new Zenmap scan for both networks: 192.168.1.0/24 and 10.1.1.0/28
+# Remove the -sn option and add the -T5 option
+# Click Scan
+
+# View the results on the Topology tab
+# Select hosts and view specific opened ports
+# Click on Services to filter by services
+# Compare results from different scans
+# Click on Tools -> Compare Results -> Choose scans -> Close Compare Results
+
+# Close Zenmap
+# Select Scan -> Quit -> Close anyway
